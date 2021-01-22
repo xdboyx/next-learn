@@ -1,7 +1,15 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
+import Link from 'next/link'
+import Container from '../styles/Container.module.scss'
+
+function HomePage() {
+  return <div>Welcome to Next.js!</div>
+}
 
 export default function Home() {
+  console.dir(process.env)
+  console.dir(process)
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +21,16 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <div style={{width: '50%', padding: '6px', margin: '10px'}} className={`${Container.flex} ${Container['space-evenly']}`}>
+          <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
+            <a>About Us</a>
+          </Link>
+          <Link href="/css/grid">
+            <a>CssGrid</a>
+          </Link>
+        </div>
+
 
         <p className={styles.description}>
           Get started by editing{' '}
